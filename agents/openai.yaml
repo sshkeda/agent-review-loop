@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Review Loop"
+  short_description: "Run Codex CLI reviews on repo changes"
+  default_prompt: "Use $codex-review-loop to review my current changes."
