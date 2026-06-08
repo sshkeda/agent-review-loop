@@ -1,13 +1,12 @@
 ---
-name: codex-review-loop
-description: Run the official Codex CLI `codex review` in a fix-rerun loop until no actionable issues remain.
+name: agent-review-loop
+description: Collect Codex and Claude Code review findings, then fix actionable issues and rerun review until no issues remain.
 ---
-# Codex Review Loop
-Run `codex review` from the repo root. Infer target from prompt:
+# Agent Review Loop
+From the repo root, infer review target from prompt and context.
 
-- `--uncommitted` for uncommitted changes
-- `--commit <sha>` for a specific commit
-- `--base <branch>` for a branch diff
-- repo-wide: `codex review "Check repository for correctness, security, maintainability, and tests."`
+Collect findings with available reviewers:
+- Codex: `codex review --uncommitted`, `--commit <sha>`, `--base <branch>`, or repo-wide `codex review "Check repository for correctness, security, maintainability, and tests."`
+- Claude: `/code-review` for current diff, path, or PR reference; no `--fix` by default.
 
-Fix issues and rerun the same target until Codex reports no actionable issues.
+Default to Codex as fixer: independently validate each flagged issue, fix confirmed actionable findings, then rerun the same review target until no actionable issues remain.

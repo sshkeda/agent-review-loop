@@ -1,13 +1,13 @@
-# Codex Review Loop
+# Agent Review Loop
 
-A small Codex skill for running the official `codex review` command in a fix-rerun loop until no actionable issues remain.
+A small agent skill for collecting Codex and Claude Code review findings, then fixing actionable issues until review converges.
 
 ## Use
 
 Install or register this repository as a skill source, then invoke:
 
 ```text
-Use $codex-review-loop to fix issues in my current changes.
+Use $agent-review-loop to fix issues in my current changes.
 ```
 
 ## License
